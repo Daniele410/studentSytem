@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class StudentServiceImpl implements StudentService {
 
@@ -24,5 +26,11 @@ public class StudentServiceImpl implements StudentService {
     public Student saveStudent(Student student) {
         log.info("save student" + student);
         return studentRepository.save(student);
+    }
+
+    @Override
+    public List<Student> getAllStudents() {
+        log.info("get all students");
+        return studentRepository.findAll();
     }
 }
