@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/student")
+@CrossOrigin
 public class StudentController {
 
     private  StudentService studentService;
@@ -26,7 +27,7 @@ public class StudentController {
     }
 
 
-    @PostMapping("/getAdd")
+    @PostMapping("/add")
     public ResponseEntity<Student> addStudent(@RequestBody Student student){
         return new ResponseEntity<>(studentService.saveStudent(student), HttpStatus.ACCEPTED);
     }
